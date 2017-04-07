@@ -1,7 +1,7 @@
 //variables
-var output = document.getElementById("output");
-var input = document.getElementById("input");
-var addBorder = document.getElementsByClassName("addBorder");
+var output = $('#output');
+var input = $('#input');
+var addBorder = $('.addBorder');
 //Create an array of objects that represents famous people
 var famous =[
    {
@@ -56,60 +56,95 @@ var famous =[
   }
 ]
 
-for (var i= 0; i<famous.length; i++) {
-    newPerson="";
-  	newPerson+=`<div class="personContainer" id="person-${i}">`
-  	newPerson+= `<header> ${famous[i].name} -${famous[i].title}</header>`
-	  newPerson+= `<section class="bio"> ${famous[i].bio}  </section>`
-  	newPerson+= `<image src=${famous[i].image} </section>`
-  	newPerson+= `<footer> ${famous[i].lifespan.birth} - ${famous[i].lifespan.death}  </footer>`
-  	newPerson+=`</div>`
-    output.innerHTML += newPerson;  
-}
+// for (var i= 0; i<famous.length; i++) {
+//      var newPerson;
+//   	newPerson+=`<div class="personContainer" id="person-${i}">`
+//   	newPerson+= `<header> ${famous[i].name} -${famous[i].title}</header>`
+// 	  newPerson+= `<section class="bio"> ${famous[i].bio}  </section>`
+//   	newPerson+= `<image src=${famous[i].image} </section>`
+//   	newPerson+= `<footer> ${famous[i].lifespan.birth} - ${famous[i].lifespan.death}  </footer>`
+//   	newPerson+=`</div>`
+//     output.innerHTML += newPerson;
+//     console.log("output.innerHTML",output.innerHTML)  
+// }
+
+// $.each(famous , function (index , value){
+// $("#output").append(`<div class="personContainer" >`);
+// console.log("value",value);
+// console.log("index",index);
+// $(".personContainer").append(`<header><h1>${value.title} ${value.name} </h1></header>`);
+// $(".personContainer").append(`<section class="bio"> ${value.bio}  </section>`);
+// $(".personContainer").append(`<image src=${value.image} >`);
+// $(".personContainer").append(`<footer> <h3>Born: ${value.lifespan.birth} <br>Died:  ${value.lifespan.death}</h3> </footer>`);
+// // $(".personContainer").append(`</div>`);
+// });
+
+
+$.each (famous, function (index,value) {
+    index += 1;
+    $("#output").append(`<div class="card">`);
+    $(".card:nth-of-type(" + index + ")").append(`<header><h1>${value.title} ${value.name} </h1></header>`);
+    $(".card:nth-of-type(" + index + ")").append(`<section class="bio"> ${value.bio}  </section>`);
+    $(".card:nth-of-type(" + index + ")").append(`<image src=${value.image} >`);
+    $(".card:nth-of-type(" + index + ")").append(`<footer> <h3>Born: ${value.lifespan.birth} <br>Died:  ${value.lifespan.death}</h3> </footer>`);
+});
+
+$("div").addClass("personContainer");
+
+
+// $.each (famousPeople, function (index,value) {
+//     index += 1;
+//     $("#card-holder").append(`<person class="card">`);
+//     $(".card:nth-of-type(" + index + ")").append(`<header><h2>${value.title} ${value.name}<h2></header>`);
+//     $(".card:nth-of-type(" + index + ")").append(`<section><span>${value.bio}</span><br><img src=${value.image}></section>`);
+//     $(".card:nth-of-type(" + index + ")").append(`<footer><h3>Born: ${value.lifespan.birth}<br>Died: ${value.lifespan.death}</h3></footer>`);
+// });
+
+// $("person").addClass("person__container");
 
 // when you click in the element 
 //add for loop statment to loop through the array to check 
 //if any element has the class selected if so it will deleted if not it will add it 
-document.body.addEventListener("click",function(event){
-	if (event.target.className==="personContainer"){
-		var selectChildren = event.target.parentNode.children;
-		//loop through all the children of the parent node
-		for (var i= 0; i<selectChildren.length; i++) {
-			//if any one has the bodred class it delete it 
-			if (selectChildren[i].classList.contains("addBorder") ){
-				selectChildren[i].classList.remove("addBorder");
-			}
-		}
-		//then add the border to what you click in 
-		event.target.classList.add("addBorder");
-	}
-});
+// document.body.addEventListener("click",function(event){
+// 	if (event.target.className==="personContainer"){
+// 		var selectChildren = event.target.parentNode.children;
+// 		//loop through all the children of the parent node
+// 		for (var i= 0; i<selectChildren.length; i++) {
+// 			//if any one has the bodred class it delete it 
+// 			if (selectChildren[i].classList.contains("addBorder") ){
+// 				selectChildren[i].classList.remove("addBorder");
+// 			}
+// 		}
+// 		//then add the border to what you click in 
+// 		event.target.classList.add("addBorder");
+// 	}
+// });
 
 //if you click in the bio class which is inside the card 
 //it will grap the data to the input element and focus in it .
-document.body.addEventListener("click",function(event){
-	if (event.target.className==="bio"){
-		input.value = event.target.innerHTML;
-		input.focus();
-    writethis();
-	} 
-});
+// document.body.addEventListener("click",function(event){
+// 	if (event.target.className==="bio"){
+// 		input.value = event.target.innerHTML;
+// 		input.focus();
+//     writethis();
+// 	} 
+// });
 
-function writethis(){
-  input.addEventListener("keyup",function(event){
-  var selectedElement =document.getElementsByClassName("addBorder");
+// function writethis(){
+//   input.addEventListener("keyup",function(event){
+//   var selectedElement =document.getElementsByClassName("addBorder");
 
-  console.log("selectedElement",selectedElement[0].children[1].innerHTML)
-  var target= selectedElement[0].children[1];
-  target.innerText= input.value;
-  }) 
-};
+//   console.log("selectedElement",selectedElement[0].children[1].innerHTML)
+//   var target= selectedElement[0].children[1];
+//   target.innerText= input.value;
+//   }) 
+// };
 
 
 
 //to clear text box when press enter
-input.addEventListener("keypress",function(event){
-	if(event.keyCode === 13){
-		input.value = "";
-	}
-});
+// input.addEventListener("keypress",function(event){
+// 	if(event.keyCode === 13){
+// 		input.value = "";
+// 	}
+// });

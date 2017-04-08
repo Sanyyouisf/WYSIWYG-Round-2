@@ -62,67 +62,43 @@ $.each (famous, function (index,value) {
     index += 1;
     $("#output").append(`<div class="card">`);
     $(".card:nth-of-type(" + index + ")").append(`<header><h1>${value.title} ${value.name} </h1></header>`);
-    $(".card:nth-of-type(" + index + ")").append(`<section class="bio"> ${value.bio}  </section>`);
+    $(".card:nth-of-type(" + index + ")").append(`<section class="bio"><span> ${value.bio}  </section>`);
     $(".card:nth-of-type(" + index + ")").append(`<image src=${value.image} >`);
     $(".card:nth-of-type(" + index + ")").append(`<footer> <p>Born: ${value.lifespan.birth} <br>Died:  ${value.lifespan.death}</p> </footer>`);
 });
 
-// $("div").addClass("personContainer");
+var bioSection = $(".addBorder .bio").text();
 
-
-// when you click in the element 
-//add for loop statment to loop through the array to check 
-//if any element has the class selected if so it will deleted if not it will add it 
+// when you click in the elementremove the border from all the sibling 
+//and then add the border to the card you click on
+// and focus in the text input  
 
 $(".card").on("click",function(){
-  console.log("you clicked on a card ");
   $(this).siblings().removeClass("addBorder");
-  console.log("removed boarder ");
   $(this).addClass("addBorder");
-  console.log("added boarder ");
+  $(input).focus();
+});
+
+//when writing in the text box 
+//the person's biography should be immediately bound to what you are typing, letter by letter.
+$(input).keyup(function(){
+  var inputValue = $(input).val();
+  var bioSection = $(".addBorder .bio").text(); 
+  // $(".addBorder .bio").text( (bioSection)+ (inputValue));
+    $(".addBorder .bio").text(inputValue);
 });
 
 
-// document.body.addEventListener("click",function(event){
-// 	if (event.target.className==="personContainer"){
-// 		var selectChildren = event.target.parentNode.children;
-// 		//loop through all the children of the parent node
-// 		for (var i= 0; i<selectChildren.length; i++) {
-// 			//if any one has the bodred class it delete it 
-// 			if (selectChildren[i].classList.contains("addBorder") ){
-// 				selectChildren[i].classList.remove("addBorder");
-// 			}
-// 		}
-// 		//then add the border to what you click in 
-// 		event.target.classList.add("addBorder");
-// 	}
-// });
 
-//if you click in the bio class which is inside the card 
-//it will grap the data to the input element and focus in it .
-// document.body.addEventListener("click",function(event){
-// 	if (event.target.className==="bio"){
-// 		input.value = event.target.innerHTML;
-// 		input.focus();
-//     writethis();
-// 	} 
-// });
-
-// function writethis(){
-//   input.addEventListener("keyup",function(event){
-//   var selectedElement =document.getElementsByClassName("addBorder");
-
-//   console.log("selectedElement",selectedElement[0].children[1].innerHTML)
-//   var target= selectedElement[0].children[1];
-//   target.innerText= input.value;
-//   }) 
-// };
+//when press inter key the text input should be blank
+$(input).keyup(function(event){
+  if (event.keyCode === 13 ){
+    $(this).val('');  
+    $(".card").removeClass("addBorder");    
+  }
+});
 
 
 
-//to clear text box when press enter
-// input.addEventListener("keypress",function(event){
-// 	if(event.keyCode === 13){
-// 		input.value = "";
-// 	}
-// });
+
+

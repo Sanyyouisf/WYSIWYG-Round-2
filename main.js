@@ -77,6 +77,7 @@ $(".card").on("click",function(){
   $(this).siblings().removeClass("addBorder");
   $(this).addClass("addBorder");
   $(input).focus();
+  $("#input").val($(".addBorder .bio").text());
 });
 
 //when writing in the text box 
@@ -89,7 +90,6 @@ $(input).keyup(function(){
 });
 
 
-
 //when press inter key the text input should be blank
 $(input).keyup(function(event){
   if (event.keyCode === 13 ){
@@ -97,8 +97,6 @@ $(input).keyup(function(event){
     $(".card").removeClass("addBorder");    
   }
 });
-
-
 
 
 

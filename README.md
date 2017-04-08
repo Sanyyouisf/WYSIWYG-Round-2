@@ -17,7 +17,7 @@
 10. When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
-![Blog Screengrab]()
+![Blog Screengrab](https://raw.githubusercontent.com/Sanyyouisf/WYSIWYG-Round-2/master/WysiwgJquery.png)
 
 ## Technologies
 

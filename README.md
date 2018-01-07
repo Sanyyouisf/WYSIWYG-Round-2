@@ -1,5 +1,8 @@
 # Wysiwyg using Jquery
 
+![Blog Screengrab](https://raw.githubusercontent.com/Sanyyouisf/WYSIWYG-Round-2/master/WysiwgJquery.png)
+
+
 ## Project Description
 [Project Specifications](https://github.com/nashville-software-school/front-end-milestones/blob/master/2-single-page-applications/exercises/SP_JS_EVENT_LISTENERS_WYSIWYG.md)
 
@@ -17,11 +20,15 @@
 10. When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
-![Blog Screengrab](https://raw.githubusercontent.com/Sanyyouisf/WYSIWYG-Round-2/master/WysiwgJquery.png)
+
 
 ## Technologies
 
 - HTML5
 - CSS
-- JavaScript
+- jJQuery
+
+## Contributer 
+- Sany Yousif
+
 

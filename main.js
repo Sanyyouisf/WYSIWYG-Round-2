@@ -28,7 +28,7 @@ var famous =[
   title: "Theologian",
   name: "Erasmus",
   bio: "When I get a little money I buy books; and if any is left I buy food and clothes.",
-  image: "http://kingofwallpapers.com/erasmus/erasmus-001.jpg",
+  image: "http://c7.alamy.com/comp/FDCFCJ/desiderius-erasmus-1466-1536-dutch-netherlands-erasmus-of-rotterdam-FDCFCJ.jpg",
   lifespan: {
   birth: 1466,
   death: 1536
